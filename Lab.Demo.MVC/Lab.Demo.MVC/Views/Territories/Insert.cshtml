@@ -1,0 +1,27 @@
+﻿@model Lab.Demo.MVC.Models.TerritoriesView
+@{
+    ViewBag.Title = "Territories Page";
+}
+
+<h1>Vista para insertar</h1>
+
+@using (Html.BeginForm($"{ViewBag.Message}", "Territories", FormMethod.Post , new { @id="form"}))
+{
+    if (ViewBag.Message == "Insert")
+    {
+        <label>Territory ID <span>(required, at least 5 numbers)</span></label>
+        @Html.TextBoxFor(t => t.Id, new { @type = "number"})
+        <label>Description:</label>
+        @Html.TextBoxFor(t => t.Description)
+        <label>Region ID</label>
+        @Html.TextBoxFor(t => t.RegionId)
+        <input type="submit" class="btn btn-success" value="Submit" />
+    }
+    else
+    {
+        <label>Territory ID</label> @Html.TextBoxFor(t => t.Id, new { @readonly = true, @type = "number"})
+        <label>Description:</label> @Html.TextBoxFor(t => t.Description)
+        <label>Region ID</label> @Html.TextBoxFor(t => t.RegionId, new {@type = "number", @readonly = true})
+        <input type="submit" class="btn btn-success" value="Submit" />
+    }
+}
