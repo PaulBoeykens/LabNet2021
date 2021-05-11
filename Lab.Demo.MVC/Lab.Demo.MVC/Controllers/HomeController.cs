@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Lab.Demo.MVC.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,9 +12,14 @@ namespace Lab.Demo.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            ApiView dolarhoy = new ApiView();
+            var httpClient = new HttpClient();
+            var json = await httpClient.GetStringAsync("https://api-dolar-argentina.herokuapp.com/api/dolaroficial");
+
+            dolarhoy = JsonConvert.DeserializeObject<ApiView>(json);
+            return View(dolarhoy);
         }
 
         public ActionResult About()
@@ -26,5 +35,6 @@ namespace Lab.Demo.MVC.Controllers
 
             return View();
         }
+
     }
 }

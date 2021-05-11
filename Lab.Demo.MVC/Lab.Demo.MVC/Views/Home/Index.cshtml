@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Lab.Demo.MVC.Models.ApiView
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -24,8 +25,11 @@
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>DOLAR HOY</h2>
+        <ul>
+            <li>Fecha: @Model.Fecha</li>
+            <li>Compra: @Model.Compra</li>
+            <li>Venta: @Model.Venta</li>
+        </ul>   
     </div>
 </div>
