@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label class="col-form-label">ID Territory</label>
+        <input formControlName="idTerritory" type="text" class="form-control">
+        <small *ngIf="idTerritoryCtrl?.invalid && idTerritoryCtrl?.touched" class="text-danger">El ID del territorio es requerido</small>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label">Territory Description</label>
+        <input formControlName="territoryDescription" type="text" class="form-control">
+        <small *ngIf="territoryCtrl?.invalid && territoryCtrl?.touched" class="text-danger">La descripcion del territorio es requerida</small>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label">ID Region</label>
+        <input formControlName="idRegion" type="number" class="form-control">
+        <small *ngIf="idRegionCtrl?.errors?.required" class="text-danger">El ID de Region es requerido</small>
+        <small *ngIf="idRegionCtrl?.errors?.number" class="text-danger">El ID no es válido</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-danger" (click)="onClickLimpiar">Clean</button>
+</form>
+<app-list></app-list>

@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">ID Territory</th>
+          <th scope="col">Territory Description</th>
+          <th scope="col">ID Region</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let territories of territoriesList">
+        <td>{{territories.IdTerritory}}</td>
+        <td>{{territories.TerritoryDescription}}</td>
+        <td>{{territories.IdRegion}}</td>
+        <!--
+       <td>{{territoriesList.TerritoryID}}</td>
+        <td>{{territoriesList.TerritoryDescription}}</td>
+        <td>{{territoriesList.RegionID}}</td> 
+        -->
+
+        <td><button {click}="Update(territories)" class="btn btn-warning">Update</button></td>
+        <td><button {click}="Delete(territories.IdTerritory)" class="btn btn-danger ml-4">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
